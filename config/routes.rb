@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 	 namespace :api do
-  	resources :users, shallow: true do
+  	resources :users do
   		resources :polls
   	end
   end

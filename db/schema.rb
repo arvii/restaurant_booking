@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426084720) do
+ActiveRecord::Schema.define(version: 20170427035207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "polls", force: :cascade do |t|
-    t.integer  "started_by_user"
+    t.integer  "started_by_user_id"
     t.integer  "number_of_people"
     t.integer  "budget"
     t.text     "occasion"
     t.text     "status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["started_by_user"], name: "index_polls_on_started_by_user", using: :btree
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["started_by_user_id"], name: "index_polls_on_started_by_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
