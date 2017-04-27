@@ -32,7 +32,7 @@ module Api
 		def get_poll
 			@poll = Poll.find_by(id: params[:id])
 
-			render json: { error: "poll(id:#{params[:id]}) does not exist" } unless @poll
+			render json: { error: "poll does not exist" } unless @poll
 		end
 
 		def permitted_create_params
