@@ -50,6 +50,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'simplecov'
 end
 
