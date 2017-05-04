@@ -1,11 +1,12 @@
 module Api
   class VotesController < ApplicationController
     def create
-      @vote = Vote.create(
+      @vote = Votes::CreateService.new(
         user: User.find_by(id: params[:user_id]),
         restaurant: Restaurant.find_by(id: params[:restaurant_id]),
         poll: Poll.find_by(id: params[:poll_id])
-      )
+      ).call
+
       render json: @vote
     end
 
@@ -18,6 +19,5 @@ module Api
       @vote = Vote.find(params[:id])
       render json: @vote
     end
-
   end
 end
