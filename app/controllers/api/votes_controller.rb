@@ -19,6 +19,5 @@ module Api
       @vote = Vote.find(params[:id])
       render json: @vote
     end
-
   end
 end

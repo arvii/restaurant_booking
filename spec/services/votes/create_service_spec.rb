@@ -13,13 +13,17 @@ RSpec.describe Votes::CreateService do
   end
 
   context 'successful' do
-    let!(:vote) { voting_process.call }
-
     it 'it creates a vote' do
+      vote = voting_process.call
       expect(vote).to be_a_kind_of(Vote)
       expect(vote.user).to eq user
       expect(vote.poll).to eq poll
       expect(vote.restaurant).to eq restaurant
+    end
+
+    it 'enqueues the SleepJob' do
+      expect(SleepJob).to receive(:perform_now)
+      voting_process.call
     end
   end
 

@@ -16,7 +16,7 @@ module Votes
       )
 
       if vote.valid?
-        sleep(1)
+        SleepJob.perform_now
         vote
       else
         {
